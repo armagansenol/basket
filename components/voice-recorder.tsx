@@ -6,11 +6,11 @@ import { Square } from "lucide-react";
 export default function VoiceRecorder() {
   const [isRecording, setIsRecording] = useState(false);
   const [duration, setDuration] = useState(0);
-  const [audioLevels, setAudioLevels] = useState<number[]>(
+  const [audioLevels, setAudioLevels] = useState<number[]>(() =>
     Array(40).fill(0).map(() => Math.random() * 0.5 + 0.2)
   );
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
 
