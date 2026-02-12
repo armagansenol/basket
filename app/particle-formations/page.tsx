@@ -21,7 +21,7 @@ export default function ParticleFormationsPage() {
               <h2 className="text-xl font-semibold mb-3 text-white">Interaction</h2>
               <ul className="space-y-2 text-neutral-300">
                 <li>• <strong className="text-purple-400">Click Anywhere</strong> - Cycle to next formation</li>
-                <li>• <strong className="text-purple-400">6 Formations</strong> - Spiral, Flower, Lissajous, Circle, Heart, Bezier</li>
+                <li>• <strong className="text-purple-400">11 Formations</strong> - Spiral, Flower, Lissajous, Circle, Heart, Bezier, Grid, Wave, Infinity, Star, User Icon</li>
                 <li>• <strong className="text-purple-400">Smooth Transitions</strong> - Particles steer towards targets</li>
               </ul>
             </div>
@@ -87,6 +87,40 @@ export default function ParticleFormationsPage() {
                   • <strong>Bezier Curve:</strong><br/>
                   <span className="text-neutral-400 ml-2">
                     Cubic Bezier with random control points. Formula: B(t) = (1-t)³P₀ + 3(1-t)²tP₁ + 3(1-t)t²P₂ + t³P₃
+                  </span>
+                </li>
+                <li>
+                  • <strong>Grid:</strong><br/>
+                  <span className="text-neutral-400 ml-2">
+                    Rectangular lattice pattern organizing particles into rows and columns.
+                    Creates a structured, geometric arrangement with uniform spacing.
+                  </span>
+                </li>
+                <li>
+                  • <strong>Wave:</strong><br/>
+                  <span className="text-neutral-400 ml-2">
+                    Sinusoidal wave pattern flowing horizontally. Formula: y = amplitude × sin(t), where t increases with particle index.
+                  </span>
+                </li>
+                <li>
+                  • <strong>Infinity (Lemniscate):</strong><br/>
+                  <span className="text-neutral-400 ml-2">
+                    Figure-eight curve using Lemniscate of Bernoulli equation.
+                    Formula: x = cos(θ)/(1+sin²(θ)), y = sin(θ)cos(θ)/(1+sin²(θ))
+                  </span>
+                </li>
+                <li>
+                  • <strong>Star:</strong><br/>
+                  <span className="text-neutral-400 ml-2">
+                    Five-pointed star with alternating outer and inner radii.
+                    Particles distributed between points (outer radius) and valleys (inner radius at 40%).
+                  </span>
+                </li>
+                <li>
+                  • <strong>User Icon:</strong><br/>
+                  <span className="text-neutral-400 ml-2">
+                    Classic profile icon with circular head and shoulders. 35% of particles form the head circle,
+                    65% create the shoulder arc below. Iconic silhouette used in user interfaces.
                   </span>
                 </li>
               </ul>
