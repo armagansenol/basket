@@ -10,9 +10,11 @@ export default function MotionGrid() {
     if (!containerRef.current) return;
 
     let p5Instance: any = null;
+    let isCancelled = false;
 
     // Dynamically import p5 only on client side
     import("p5").then((p5Module) => {
+      if (isCancelled) return; // Don't create instance if component unmounted
       const p5 = p5Module.default;
 
       const sketch = (p: any) => {
@@ -308,8 +310,13 @@ export default function MotionGrid() {
 
     // Cleanup function
     return () => {
+      isCancelled = true;
       if (p5Instance) {
         p5Instance.remove();
+      }
+      // Clear container to prevent duplicate canvases
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
       }
     };
   }, []);

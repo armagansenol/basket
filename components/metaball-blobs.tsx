@@ -9,6 +9,7 @@ export default function MetaballBlobs() {
     if (!containerRef.current) return;
 
     let p5Instance: any = null;
+    let isCancelled = false;
 
     // Load dependencies
     Promise.all([
@@ -355,8 +356,13 @@ void main() {
 
     // Cleanup function
     return () => {
+      isCancelled = true;
       if (p5Instance) {
         p5Instance.remove();
+      }
+      // Clear container to prevent duplicate canvases
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
       }
     };
   }, []);

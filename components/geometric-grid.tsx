@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type p5 from "p5";
 
 export default function GeometricGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,13 +10,16 @@ export default function GeometricGrid() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    let p5Instance: any = null;
+    let p5Instance: p5 | null = null;
+    let isCancelled = false;
 
     // Dynamically import p5 only on client side
     import("p5").then((p5Module) => {
+      if (isCancelled) return; // Don't create instance if component unmounted
+
       const p5 = p5Module.default;
 
-      const sketch = (p: any) => {
+      const sketch = (p: p5) => {
         const colors = ['#f71735', '#067bc2', '#FFC247', '#3BD89F', '#81cfe5', '#f654a9'];
 
         const drawShape = (x: number, y: number, w: number, shapeType: number, clr: string) => {
@@ -247,8 +251,13 @@ export default function GeometricGrid() {
 
     // Cleanup function
     return () => {
+      isCancelled = true;
       if (p5Instance) {
         p5Instance.remove();
+      }
+      // Clear container to prevent duplicate canvases
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
       }
     };
   }, []);
