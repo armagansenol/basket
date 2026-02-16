@@ -1,6 +1,6 @@
 "use client"
 
-import { Mic, Home, Package, MousePointerClick, BarChart3, Shield, ListChecks, Zap, Music, Sparkles, Flag, Target, Type, Flower2, Box, FileText, Circle, Palette, Grid3x3, Play, Network, Image, Star } from "lucide-react"
+import { Mic, Home, Package, MousePointerClick, BarChart3, Shield, ListChecks, Zap, Music, Sparkles, Flag, Target, Type, Flower2, Box, FileText, Circle, Palette, Grid3x3, Play, Network, Image, Star, ListTodo, Bike } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -43,6 +43,21 @@ const items = [
     title: "Personality Test",
     url: "/personality-test",
     icon: ListChecks,
+  },
+  {
+    title: "My Tasks",
+    url: "/my-tasks",
+    icon: ListTodo,
+  },
+  {
+    title: "Bike Status Card",
+    url: "/bike-status-card",
+    icon: Bike,
+  },
+  {
+    title: "Bloodborne Sprites",
+    url: "/bloodborne-sprite-showcase",
+    icon: Star,
   },
   {
     title: "Race Track",

@@ -124,3 +124,113 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .bike-card-float {
+    animation: bike-card-float 4.8s ease-in-out infinite;
+  }
+
+  .bike-pill-pulse {
+    animation: bike-pill-pulse 2.6s ease-in-out infinite;
+  }
+
+  .bike-wheel-spin {
+    animation: bike-wheel-spin 5.5s linear infinite;
+  }
+
+  .bike-dial-spin {
+    animation: bike-dial-spin 8s ease-in-out infinite;
+  }
+
+  .bike-badge-pulse {
+    animation: bike-badge-pulse 2.9s ease-in-out infinite;
+  }
+
+  .bike-bar-breathe {
+    animation: bike-bar-breathe 1.8s ease-in-out infinite;
+  }
+
+  .bike-sheen {
+    animation: bike-sheen 4.8s linear infinite;
+  }
+}
+
+@keyframes bike-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bike-pill-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+@keyframes bike-wheel-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bike-dial-spin {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes bike-badge-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  }
+}
+
+@keyframes bike-bar-breathe {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleY(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes bike-sheen {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.6;
+  }
+  34% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(420%);
+    opacity: 0;
+  }
+}

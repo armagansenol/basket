@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type p5 from "p5";
 
 export default function RippleCube() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -8,18 +9,19 @@ export default function RippleCube() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    let p5Instance: any = null;
+    let p5Instance: p5 | null = null;
     let isCancelled = false;
+    const container = containerRef.current;
 
     // Dynamically import p5 only on client side
     import("p5").then((p5Module) => {
       if (isCancelled) return; // Don't create instance if component unmounted
-      const p5 = p5Module.default;
+      const P5 = p5Module.default;
 
-      const sketch = (p: any) => {
-        let sdr: any;
-        let g: any;
-        let waves: number[][] = [];
+      const sketch = (p: p5) => {
+        let sdr: p5.Shader;
+        let g: p5.Graphics;
+        const waves: number[][] = [];
         const WAVE_N = 20;
         const WAVE_LIFE = 500;
         let W: number;
@@ -321,7 +323,8 @@ export default function RippleCube() {
         };
 
         const getCanvasMousePos = () => {
-          const canvas = p.canvas;
+          // @ts-expect-error - canvas is not in the type definition but available at runtime
+          const canvas = p.canvas as HTMLCanvasElement;
           const rect = canvas.getBoundingClientRect();
           // Use window mouse coordinates and convert to canvas coordinates
           const x = p.winMouseX - rect.left;
@@ -329,6 +332,7 @@ export default function RippleCube() {
           return { x, y };
         };
 
+        // @ts-expect-error - touchStarted is not in the type definition but used by p5
         p.touchStarted = () => {
           if (waves.length !== WAVE_N) {
             const pos = getCanvasMousePos();
@@ -361,8 +365,8 @@ export default function RippleCube() {
         };
       };
 
-      if (containerRef.current) {
-        p5Instance = new p5(sketch, containerRef.current);
+      if (container) {
+        p5Instance = new P5(sketch, container);
       }
     });
 
@@ -373,8 +377,8 @@ export default function RippleCube() {
         p5Instance.remove();
       }
       // Clear container to prevent duplicate canvases
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
+      if (container) {
+        container.innerHTML = '';
       }
     };
   }, []);
