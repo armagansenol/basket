@@ -305,7 +305,7 @@ void main() {
           // Try to load the external image
           p.loadImage(
             "https://deckard.openprocessing.org/user67809/visual2181338/h987a85d77bacbc3b232fb87ce6fe440a/dusseldorf_bridge.jpg",
-            (img) => {
+            (img: any) => {
               spheremap = img;
             },
             () => {

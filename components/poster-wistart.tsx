@@ -333,8 +333,8 @@ export default function PosterWIStart() {
         p5Instance.remove();
       }
       // Clear container to prevent duplicate canvases
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
+      if (hostRef.current) {
+        hostRef.current.innerHTML = '';
       }
     };
   }, []);

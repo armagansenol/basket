@@ -112,7 +112,7 @@ export default function PersonalityTest() {
 
     // Check for shader compilation errors
     const gl = renderer.getContext();
-    const program = renderer.properties.get(material).programs?.values().next().value?.program;
+    const program = (renderer.properties.get(material) as any).programs?.values().next().value?.program;
 
     if (program && !gl.getProgramParameter(program, gl.LINK_STATUS)) {
       console.error('Shader program failed to link:', gl.getProgramInfoLog(program));
@@ -126,6 +126,7 @@ export default function PersonalityTest() {
     function animate() {
       // Update all positions
       const positions: THREE.Vector2[] = [];
+      if (!canvas) return;
       const canvasRect = canvas.getBoundingClientRect();
 
       questions.forEach((q, index) => {

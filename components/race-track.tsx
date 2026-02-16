@@ -153,6 +153,7 @@ export default function RaceTrack() {
     let animationId: number;
 
     function animate() {
+      if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
       drawBackground(ctx);
