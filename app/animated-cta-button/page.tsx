@@ -46,7 +46,7 @@ export default function AnimatedCTAButtonPage() {
 
           <div className="mt-6 p-6 bg-white rounded-lg shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Usage</h2>
-            <div className="bg-neutral-900 text-neutral-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+            <div className="bg-neutral-100 text-neutral-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
               <pre>{`<AnimatedCTAButton
   text="Start selling"
   onClick={() => console.log('Clicked!')}

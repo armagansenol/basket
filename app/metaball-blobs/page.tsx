@@ -2,12 +2,12 @@ import MetaballBlobs from "@/components/metaball-blobs";
 
 export default function MetaballBlobsPage() {
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="min-h-screen bg-neutral-100">
       <div className="container mx-auto py-10 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold mb-2 text-white">Metaball Blobs</h1>
-            <p className="text-neutral-400">
+            <h1 className="text-4xl font-bold mb-2 text-neutral-900">Metaball Blobs</h1>
+            <p className="text-neutral-600">
               Physics-based metaballs with custom GLSL shaders and sphere-mapped reflections.
             </p>
           </div>
@@ -17,18 +17,18 @@ export default function MetaballBlobsPage() {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="p-6 bg-neutral-800 rounded-lg border border-neutral-700">
-              <h2 className="text-xl font-semibold mb-3 text-white">Interaction</h2>
-              <ul className="space-y-2 text-neutral-300">
+            <div className="p-6 bg-white rounded-lg border border-neutral-200">
+              <h2 className="text-xl font-semibold mb-3 text-neutral-900">Interaction</h2>
+              <ul className="space-y-2 text-neutral-700">
                 <li>• <strong className="text-purple-400">Click</strong> - Add new random blob</li>
                 <li>• <strong className="text-purple-400">Watch</strong> - Blobs fall and collide with physics</li>
                 <li>• <strong className="text-purple-400">Merge</strong> - Metaballs smooth-blend together</li>
               </ul>
             </div>
 
-            <div className="p-6 bg-neutral-800 rounded-lg border border-neutral-700">
-              <h2 className="text-xl font-semibold mb-3 text-white">Visual Features</h2>
-              <ul className="space-y-2 text-neutral-300">
+            <div className="p-6 bg-white rounded-lg border border-neutral-200">
+              <h2 className="text-xl font-semibold mb-3 text-neutral-900">Visual Features</h2>
+              <ul className="space-y-2 text-neutral-700">
                 <li>• <strong>Sphere Mapping</strong> - Environment reflections</li>
                 <li>• <strong>Smooth Union</strong> - Metaball blending shader</li>
                 <li>• <strong>Phong Lighting</strong> - Directional light + normal mapping</li>
@@ -37,9 +37,9 @@ export default function MetaballBlobsPage() {
             </div>
           </div>
 
-          <div className="mt-6 p-6 bg-neutral-800 rounded-lg border border-neutral-700">
-            <h2 className="text-xl font-semibold mb-3 text-white">Technical Implementation</h2>
-            <p className="text-neutral-300 mb-4">
+          <div className="mt-6 p-6 bg-white rounded-lg border border-neutral-200">
+            <h2 className="text-xl font-semibold mb-3 text-neutral-900">Technical Implementation</h2>
+            <p className="text-neutral-700 mb-4">
               Complex physics simulation using Matter.js with custom GLSL metaball shaders. Each blob consists
               of multiple physics nodes connected by dynamic spring constraints. Spatial binning optimizes
               collision detection. The metaball effect is achieved through smooth minimum (opSmoothUnion) in
@@ -48,8 +48,8 @@ export default function MetaballBlobsPage() {
             </p>
 
             <div className="mt-4">
-              <h3 className="font-semibold mb-2 text-white">Physics System:</h3>
-              <ul className="text-sm text-neutral-300 space-y-1 ml-4">
+              <h3 className="font-semibold mb-2 text-neutral-900">Physics System:</h3>
+              <ul className="text-sm text-neutral-700 space-y-1 ml-4">
                 <li>• <strong>Engine:</strong> Matter.js 2D physics</li>
                 <li>• <strong>Blob Nodes:</strong> Circle bodies (radius 15px)</li>
                 <li>• <strong>Node Spacing:</strong> Area-based distribution (20px size)</li>
@@ -61,8 +61,8 @@ export default function MetaballBlobsPage() {
             </div>
 
             <div className="mt-4">
-              <h3 className="font-semibold mb-2 text-white">Shader Details:</h3>
-              <ul className="text-sm text-neutral-300 space-y-1 ml-4">
+              <h3 className="font-semibold mb-2 text-neutral-900">Shader Details:</h3>
+              <ul className="text-sm text-neutral-700 space-y-1 ml-4">
                 <li>• <strong>Smooth Union:</strong> h = clamp(0.5 + 0.5×(d2-d1)/k, 0, 1)</li>
                 <li>• <strong>SDF Calculation:</strong> Distance from all nodes with smooth blend</li>
                 <li>• <strong>Normal Mapping:</strong> Cross product of position derivatives</li>
@@ -74,23 +74,23 @@ export default function MetaballBlobsPage() {
             </div>
 
             <div className="mt-4">
-              <h3 className="font-semibold mb-2 text-white">Default Blob Colors:</h3>
+              <h3 className="font-semibold mb-2 text-neutral-900">Default Blob Colors:</h3>
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ background: "#f3e17e" }}></div>
-                  <span className="text-sm text-neutral-300">Yellow</span>
+                  <span className="text-sm text-neutral-700">Yellow</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ background: "#dd483c" }}></div>
-                  <span className="text-sm text-neutral-300">Red</span>
+                  <span className="text-sm text-neutral-700">Red</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ background: "#4b8a5f" }}></div>
-                  <span className="text-sm text-neutral-300">Green</span>
+                  <span className="text-sm text-neutral-700">Green</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ background: "#0d150b" }}></div>
-                  <span className="text-sm text-neutral-300">Dark</span>
+                  <span className="text-sm text-neutral-700">Dark</span>
                 </div>
               </div>
             </div>

@@ -48,8 +48,10 @@
 }
 
 :root {
+  --font-geist-sans: "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.93 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -232,5 +234,49 @@
   100% {
     transform: translateX(420%);
     opacity: 0;
+  }
+}
+
+.hero-electron-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-electron-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.95) 0 28%, rgba(255, 255, 255, 0.1) 55%, transparent 78%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.25));
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+  transform: translate(-50%, -50%);
+  animation: hero-electron-orbit 3s linear infinite;
+}
+
+.hero-electron-center-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes hero-electron-orbit {
+  from {
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--start-angle) + var(--tilt)))
+      translateX(var(--orbit-radius))
+      rotate(calc(-1 * (var(--start-angle) + var(--tilt))));
+  }
+  to {
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--start-angle) + var(--tilt) + 360deg))
+      translateX(var(--orbit-radius))
+      rotate(calc(-1 * (var(--start-angle) + var(--tilt) + 360deg)));
   }
 }

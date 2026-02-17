@@ -47,7 +47,7 @@ export default function PreventBentoItemPage() {
               Multiple overlapping ripples with different phases create a dynamic, organic animation that fades
               towards the edges.
             </p>
-            <div className="bg-neutral-900 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+            <div className="bg-neutral-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
               <pre className="text-cyan-400">{`// Fragment shader excerpt
 float ripple1 = sin((dist - u_time * 0.3) * 15.0);
 float ripple2 = sin((dist - u_time * 0.3 + 0.5) * 15.0);

@@ -47,7 +47,7 @@ export default function PersonalityTestPage() {
               point's influence is inversely proportional to the square of its distance. Multiple
               influence fields combine to create organic, blob-like shapes that merge seamlessly.
             </p>
-            <div className="bg-neutral-900 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+            <div className="bg-neutral-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
               <pre className="text-cyan-400">{`// Metaball equation
 for each point:
   influence = radius² / distance²

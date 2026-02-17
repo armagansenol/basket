@@ -12,7 +12,7 @@ export default function AnalyticsCardPage() {
             </p>
           </div>
 
-          <div className="bg-neutral-800 p-12 rounded-lg flex items-center justify-center">
+          <div className="bg-white p-12 rounded-lg flex items-center justify-center">
             <AnalyticsCard />
           </div>
 

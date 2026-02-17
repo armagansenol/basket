@@ -3,12 +3,16 @@
 import { useState, useRef, useEffect } from "react";
 import { Square } from "lucide-react";
 
+const INITIAL_AUDIO_LEVELS = Array.from({ length: 40 }, (_, i) => {
+  // Deterministic seed pattern to avoid SSR/client hydration mismatch.
+  const t = i / 39;
+  return 0.2 + (0.5 * (0.5 + 0.5 * Math.sin(t * Math.PI * 3.2)));
+});
+
 export default function VoiceRecorder() {
   const [isRecording, setIsRecording] = useState(false);
   const [duration, setDuration] = useState(0);
-  const [audioLevels, setAudioLevels] = useState<number[]>(() =>
-    Array(40).fill(0).map(() => Math.random() * 0.5 + 0.2)
-  );
+  const [audioLevels, setAudioLevels] = useState<number[]>(INITIAL_AUDIO_LEVELS);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const animationRef = useRef<number | undefined>(undefined);
   const audioContextRef = useRef<AudioContext | null>(null);

@@ -250,6 +250,36 @@ export default function Home() {
             </div>
           </Link>
 
+          <Link href='/ripple-noise-transition'>
+            <div className='group p-6 border rounded-lg hover:shadow-lg transition-all cursor-pointer bg-white'>
+              <div className='mb-4'>
+                <LayeredIcon Icon={Image} color='emerald' className='size-12' />
+              </div>
+              <h2 className='text-xl font-semibold mb-2'>Ripple Noise Transition</h2>
+              <p className='text-neutral-600'>TSL shader transition between two images with ripple and noise.</p>
+              <div className='mt-4'>
+                <Button variant='ghost' size='sm' className='group-hover:translate-x-1 transition-transform'>
+                  View Component →
+                </Button>
+              </div>
+            </div>
+          </Link>
+
+          <Link href='/hero-electron'>
+            <div className='group p-6 border rounded-lg hover:shadow-lg transition-all cursor-pointer bg-white'>
+              <div className='mb-4'>
+                <LayeredIcon Icon={Circle} color='blue' className='size-12' />
+              </div>
+              <h2 className='text-xl font-semibold mb-2'>Hero Electron Orbit</h2>
+              <p className='text-neutral-600'>Layered orbiting electron hero animation recreation.</p>
+              <div className='mt-4'>
+                <Button variant='ghost' size='sm' className='group-hover:translate-x-1 transition-transform'>
+                  View Component →
+                </Button>
+              </div>
+            </div>
+          </Link>
+
           <Link href='/typewriter-poem'>
             <div className='group p-6 border rounded-lg hover:shadow-lg transition-all cursor-pointer bg-white'>
               <div className='mb-4'>
